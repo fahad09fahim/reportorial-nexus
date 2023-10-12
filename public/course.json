@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "News Presentation Basic",
+    "image": "https://i.ibb.co/5njSMpK/1.png",
+    "instructorName": "James G. Grimes",
+    "availableSeats": 15,
+    "price": 20.0
+  },
+  {
+    "id": 2,
+    "name": "Journalism Fundamentals",
+    "image": "https://i.ibb.co/Mfq9CFP/2.png",
+    "instructorName": "Jonas Metzger",
+    "availableSeats": 10,
+    "price": 25.0
+  },
+  {
+    "id": 3,
+    "name": "Newsroom simulation",
+    "image": "https://i.ibb.co/0s9xRwT/3.png",
+    "instructorName": "Isaac Matthews",
+    "availableSeats": 12,
+    "price": 18.0
+  },
+  {
+    "id": 4,
+    "name": "Specialized Reporting",
+    "image": "https://i.ibb.co/s3ZyYQ7/4.png",
+    "instructorName": "Amelia Walsh",
+    "availableSeats": 8,
+    "price": 30.0
+  },
+  {
+    "id":5,
+    "name": "Media technology",
+    "image": "https://i.ibb.co/h2KC96d/5.png",
+    "instructorName": "Isaac Matthews",
+    "availableSeats": 20,
+    "price": 15.0
+  },
+  {
+    "id": 6,
+    "name": "Public speaking and confidence build",
+    "image": "https://i.ibb.co/0Gzj9zb/6.png",
+    "instructorName": "James G. Grimes",
+    "availableSeats": 7,
+    "price": 35.0
+  },
+  {
+    "id": 7,
+    "name": "Guest Speakers and industry exparts",
+    "image": "https://i.ibb.co/Z27dnTn/7.png",
+    "instructorName": "Jonas Metzger",
+    "availableSeats": 25,
+    "price": 10.0
+  },
+  {
+    "id": 8,
+    "name": "Online presence and branding",
+    "image": "https://i.ibb.co/RPdpgqM/8.png",
+    "instructorName": "Isaac Matthews",
+    "availableSeats": 18,
+    "price": 22.0
+  },
+  {
+    "id": 9,
+    "name": "on-camera practice",
+    "image": "https://i.ibb.co/KzZSYkS/9.png",
+    "instructorName": "Amelia Walsh",
+    "availableSeats": 14,
+    "price": 20.0
+  },
+  {
+    "id": 10,
+    "name": "Live Reporting",
+    "image": "https://i.ibb.co/vhw13gQ/10.png",
+    "instructorName": "James G. Grimes",
+    "availableSeats": 10,
+    "price": 28.0
+  }
+]

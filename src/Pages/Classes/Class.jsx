@@ -13,11 +13,11 @@ const [courses] = useCourses()
         <img src={courseBanner} alt="" />
       </div>
       <div>
-        <h1 className="text-center text-5xl text-white font-semibold my-3 border-b-2 border-white">
-          Our Courses
+        <h1 className="text-center text-5xl text-black font-semibold my-3 border-b-2 border-white">
+         <span className="border-b-4 border-blue-500"> Our Courses</span>
         </h1>
       </div>
-     <div className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+     <div className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-7">
      {courses.map((course) => (
         <ClassCard key={course.id} course={course}></ClassCard>
       ))}

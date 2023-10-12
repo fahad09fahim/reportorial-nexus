@@ -1,0 +1,29 @@
+[
+    {
+      "id": 1,
+      "name": "James G. Grimes",
+      "image": "https://i.ibb.co/gt0SbWs/James-G-Grimes-removebg-preview.png",
+      "email":"grimes@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Amelia Walsh",
+      "image": "https://i.ibb.co/Fg3ZNgt/Amelia-Walsh-removebg-preview.png",
+      "email":"walsh@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Jonas Metzger",
+      "image": "https://i.ibb.co/5K2j1Xq/Jonas-Metzger-removebg-preview.png  ",
+      "email":"metzger@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Isaac Matthews",
+      "image": "https://i.ibb.co/ydg8fhd/Isaac-Matthews-removebg-preview.png",
+      "email":"matthews@gmail.com"
+    }
+  ]
+
+  
+  

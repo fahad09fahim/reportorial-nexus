@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import SocialLogin from "../../component/SocialLogin/SocialLogin";
 
 const Registration = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser,updateUserProfile} = useContext(AuthContext)
   const {
     register,
     handleSubmit,
@@ -16,8 +16,11 @@ const Registration = () => {
    .then(res=>{
     const user = res.user
     console.log(user)
+    updateUserProfile(data.name)
+    .then(res=>res.json())
+    .then(data=>console.log(data))
    })
-    console.log(data);
+  
   };
 
 

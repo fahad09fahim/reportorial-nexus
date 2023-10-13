@@ -1,19 +1,30 @@
 import { Link } from "react-router-dom";
 import './NavBar.css'
+import { useContext } from "react";
+import { AuthContext } from './../../../providers/AuthProvider';
 
 const Navbar = () => {
+  const {user,logOut}=useContext(AuthContext)
+
+  const handleLogout=()=>{
+    return logOut()
+    .then(res=>console.log(res))
+  }
   const navList = (
-    <>
-      <li>
-        <Link>Home</Link>
-      </li>
-      <li>
-        <Link to="/class">Classes</Link>
-      </li>
-      <li>
-        <Link> Instructors</Link>
-      </li>
-    </>
+    <div className="flex flex-col lg:flex-row gap-3 ">
+    
+        <Link className="btn btn-ghost hover:text-red-400 " >Home</Link>
+     
+   
+        <Link  className="btn btn-ghost hover:text-red-400 " to="/class">Classes</Link>
+   
+   
+        <Link className="btn btn-ghost hover:text-red-400 " > Instructors</Link>
+  
+      {user && 
+        <Link className="btn btn-ghost hover:text-red-400 " >Cart</Link>
+      }
+    </div>
   );
   return (
     <div className="navbar hexaBg text-white max-w-screen-xl rounded-b-xl px-8 shadow-lg fixed z-10">
@@ -54,7 +65,26 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navList}</ul>
       </div>
       <div className="navbar-end">
-       <Link to='/login'>Login</Link>
+        {
+          user?<div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn  btn-circle  avatar">
+            <div className="w-10 rounded-full">
+              <img src={user.photoURL} />
+            </div>
+          </label>
+          <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-black text-white rounded-box w-52">
+            <li>
+              <a className="justify-between">
+                Profile
+              </a>
+            </li>
+            <li><a>DashBoard</a></li>
+            <li><button onClick={handleLogout}>Logout</button></li>
+          </ul>
+        </div>
+    :<Link className="btn btn-ghost hover:text-red-400 " to='/login'>Login</Link>
+        }
+       
       </div>
     </div>
   );

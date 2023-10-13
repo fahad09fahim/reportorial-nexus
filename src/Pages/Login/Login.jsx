@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from './../../providers/AuthProvider';
+import { Link } from 'react-router-dom';
+import SocialLogin from "../../component/SocialLogin/SocialLogin";
 
 const Login = () => {
     const {logIn}= useContext(AuthContext)
@@ -78,9 +80,10 @@ const Login = () => {
                 <button className="btn btn-outline">Login</button>
               </div>
             </form>
+            <div className="hero-content"><span className="text-xs md:text-sm font-medium ">New to Reportorial News? <Link to='/register' className="text-info">Create an account</Link></span></div>
             <div className="divider">OR</div>
             <div className="hero-content">
-              <h1>google</h1>
+              <SocialLogin/>
             </div>
           </div>
         </div>

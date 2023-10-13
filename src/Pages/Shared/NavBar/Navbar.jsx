@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import './NavBar.css'
+
 const Navbar = () => {
   const navList = (
     <>
@@ -53,7 +54,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navList}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Login</a>
+       <Link to='/login'>Login</Link>
       </div>
     </div>
   );

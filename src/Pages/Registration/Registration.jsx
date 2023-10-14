@@ -12,6 +12,7 @@ const Registration = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    console.log(data)
    createUser(data.email,data.password)
    .then(res=>{
     const user = res.user
@@ -83,6 +84,23 @@ const Registration = () => {
                 </span>
               )}
             </div>
+           
+            <div className="form-control w-full ">
+  <label className="label">
+    <span className="label-text">Upload Your Photo:</span>
+   
+  </label>
+  <input type="file" {...register("image", {
+                  required: true,
+               
+                })} className="file-input file-input-bordered w-full" />
+ 
+</div>
+{errors.image && (
+                <span className="text-red-500">
+                  Please insert image
+                </span>
+              )}
             {/* ----------------------password input field--------------------------------------- */}
             <div className="form-control">
               <label className="label">
@@ -116,6 +134,7 @@ const Registration = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

@@ -27,7 +27,7 @@ const Navbar = () => {
     </div>
   );
   return (
-    <div className="navbar hexaBg text-white max-w-screen-xl rounded-b-xl px-8 shadow-lg fixed z-10">
+    <div className="navbar hexaBg text-white h-8  px-8 shadow-lg  fixed  z-10 ">
       <div className="navbar-start lg:hidden">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -48,7 +48,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-500 rounded-b-lg w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-700 rounded-b-lg w-52"
           >
             {navList}
           </ul>
@@ -78,7 +78,7 @@ const Navbar = () => {
                 Profile
               </a>
             </li>
-            <li><a>DashBoard</a></li>
+            <li><Link  to='/dashboard'>DashBoard</Link></li>
             <li><button onClick={handleLogout}>Logout</button></li>
           </ul>
         </div>

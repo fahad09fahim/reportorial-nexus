@@ -16,7 +16,7 @@ const ClassCard = ({ course }) => {
           <p>Available seats: {availableSeats}</p>
           <p>Price: ${price}</p>
           <div className="card-actions justify-start">
-            <button className="btn btn-primary">Buy Now</button>
+            <button className="btn btn-outline bg-sky-400 text-white hover:bg-slate-200 hover:text-black ">Select Class</button>
           </div>
         </div>
       </div>

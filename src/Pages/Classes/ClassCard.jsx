@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import useSelectCourse from "../../Hook/useSelectedCourse";
 
 const ClassCard = ({ course }) => {
   const { _id,name, image, instructorName, availableSeats, price } = course;
   const {user}= useContext(AuthContext)
+  const [, refetch] = useSelectCourse();
 
   const handleSelectClass=(course)=>{
-    console.log(course)
+    // console.log(course)
     if(user && user.email){
       const selectedItem = {courseId:_id,name,instructorName,availableSeats,price,email:user.email}
      fetch('http://localhost:5000/selected',{
@@ -19,6 +21,7 @@ const ClassCard = ({ course }) => {
      .then(res=>res.json())
      .then(data=>{
       if(data.insertedId){
+        refetch()
         alert('course selected successfully')
       }
      })

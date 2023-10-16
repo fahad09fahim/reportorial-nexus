@@ -19,7 +19,7 @@ const [courses] = useCourses()
       </div>
      <div className="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-7">
      {courses.map((course) => (
-        <ClassCard key={course.id} course={course}></ClassCard>
+        <ClassCard key={course._id} course={course}></ClassCard>
       ))}
      </div>
     </div>

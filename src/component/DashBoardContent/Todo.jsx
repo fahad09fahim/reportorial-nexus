@@ -11,6 +11,9 @@ const Todo = () => {
 
   const handleStart = (e) => {
     e.preventDefault();
+
+    if (tempName === "") return;
+
     const time =
       Number(tempSecond) + Number(tempMinute) * 60 + Number(tempHour) * 60 * 60;
     setTasks([...tasks, [tempName, time]]);
@@ -19,6 +22,11 @@ const Todo = () => {
     setTempHour(0);
     setTempMinute(0);
     setTempSecond(0);
+  };
+
+  const handleReset = (e) => {
+    e.preventDefault();
+    setTasks([]);
   };
 
   return (
@@ -39,7 +47,8 @@ const Todo = () => {
         }}
       >
         <NewTask />
-        <TaskList tasks={tasks} />
+        <TaskList tasks={tasks} setTasks={setTasks} />
+        {tasks.length > 0 && <button onClick={handleReset}>Reset</button>}
       </TodoContext.Provider>
     </div>
   );
@@ -109,11 +118,18 @@ const TimeSelect = ({ name, time, value, setValue }) => {
   );
 };
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, setTasks }) => {
+  const handleDelete = (task) => {
+    setTasks(() => tasks.filter((item) => item != task));
+  };
+
   return (
     <ul>
       {tasks.map((task) => (
-        <Task task={task} key={task} />
+        <div key={task}>
+          <Task task={task} />
+          <button onClick={() => handleDelete(task)}>delete</button>
+        </div>
       ))}
     </ul>
   );

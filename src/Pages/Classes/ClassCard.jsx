@@ -1,6 +1,29 @@
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const ClassCard = ({ course }) => {
-  const { name, image, instructorName, availableSeats, price } = course;
+  const { _id,name, image, instructorName, availableSeats, price } = course;
+  const {user}= useContext(AuthContext)
+
+  const handleSelectClass=(course)=>{
+    console.log(course)
+    if(user && user.email){
+      const selectedItem = {courseId:_id,name,instructorName,availableSeats,price,email:user.email}
+     fetch('http://localhost:5000/selected',{
+      method:'POST',
+      headers:{
+        "content-type": 'application/json'
+      },
+      body: JSON.stringify(selectedItem)
+     })
+     .then(res=>res.json())
+     .then(data=>{
+      if(data.insertedId){
+        alert('course selected successfully')
+      }
+     })
+    }
+  }
   return (
     <div>
       <div className="card w-80 bg-base-100 shadow-xl my-3">
@@ -16,7 +39,7 @@ const ClassCard = ({ course }) => {
           <p>Available seats: {availableSeats}</p>
           <p>Price: ${price}</p>
           <div className="card-actions justify-start">
-            <button className="btn btn-outline bg-sky-400 text-white hover:bg-slate-200 hover:text-black ">Select Class</button>
+            <button onClick={()=>handleSelectClass(course)} className="btn btn-outline bg-sky-400 text-white hover:bg-slate-200 hover:text-black ">Select Class</button>
           </div>
         </div>
       </div>

@@ -21,9 +21,7 @@ const Navbar = () => {
    
         <Link className="btn btn-ghost hover:text-red-400 " > Instructors</Link>
   
-      {user && 
-        <Link className="btn btn-ghost hover:text-red-400 " >Cart</Link>
-      }
+      
     </div>
   );
   return (
@@ -66,7 +64,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {
-          user?<div className="dropdown dropdown-end">
+          user?<>
+          <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn  btn-circle  avatar">
             <div className="w-10 rounded-full">
               <img src={user.photoURL} />
@@ -82,6 +81,7 @@ const Navbar = () => {
             <li><button onClick={handleLogout}>Logout</button></li>
           </ul>
         </div>
+          </>
     :<Link className="btn btn-ghost hover:text-red-400 " to='/login'>Login</Link>
         }
        

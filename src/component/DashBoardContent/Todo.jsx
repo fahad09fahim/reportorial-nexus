@@ -22,7 +22,7 @@ const Todo = () => {
   };
 
   return (
-    <div>
+    <div >
       <TodoContext.Provider
         value={{
           tempName,

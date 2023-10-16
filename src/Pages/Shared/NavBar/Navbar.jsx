@@ -16,7 +16,7 @@ const Navbar = () => {
         <Link className="btn btn-ghost hover:text-red-400 " >Home</Link>
      
    
-        <Link  className="btn btn-ghost hover:text-red-400 " to="/class">Classes</Link>
+        <Link  className="btn btn-ghost hover:text-red-400 " to="/class">Course</Link>
    
    
         <Link className="btn btn-ghost hover:text-red-400 " > Instructors</Link>

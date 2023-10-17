@@ -4,7 +4,7 @@ const useCourses = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/course")
+    fetch("https://reportorial-nexus-server.vercel.app/course")
       .then((res) => res.json())
       .then((data) => {
         if (data) {

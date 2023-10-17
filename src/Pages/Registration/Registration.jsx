@@ -1,14 +1,18 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from './../../providers/AuthProvider';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../component/SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
 //  todo: give animation/ setup route after registration successfully
 const Registration = () => {
     const {createUser,updateUserProfile} = useContext(AuthContext)
+  const navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -16,10 +20,21 @@ const Registration = () => {
    createUser(data.email,data.password)
    .then(res=>{
     const user = res.user
-    console.log(user)
-    updateUserProfile(data.name)
-    .then(res=>res.json())
-    .then(data=>console.log(data))
+    // console.log(user)
+    updateUserProfile(data.name, data.photoURL)
+    .then(() => {
+
+      reset();
+      Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'User created successfully.',
+          showConfirmButton: false,
+          timer: 1500
+      });
+      navigate('/');
+
+  })
    })
   
   };
@@ -123,7 +138,7 @@ const Registration = () => {
               )}
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-outline">Login</button>
+              <button className="btn btn-outline">Register</button>
             </div>
           </form>
           <div className="hero-content"><span className="text-xs md:text-sm font-medium ">Already have an account? <Link to='/login' className="text-info">Log in</Link></span></div>

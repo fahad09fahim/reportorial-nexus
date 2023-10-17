@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import useSelectCourse from "../../Hook/useSelectedCourse";
 import Swal from "sweetalert2";
@@ -6,15 +6,20 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const ClassCard = ({ course }) => {
   const { _id,name, image, instructorName, availableSeats, price } = course;
+
+  const [isClassSelected, setIsClassSelected] = useState(false);
   const {user}= useContext(AuthContext)
   const [, refetch] = useSelectCourse();
  const navigate = useNavigate()
  const location = useLocation()
   const handleSelectClass=(course)=>{
     // console.log(course)
+    if (isClassSelected) {
+      return;
+    }
     if(user && user.email){
       const selectedItem = {courseId:_id,name,instructorName,availableSeats,price,email:user.email}
-     fetch('http://localhost:5000/selected',{
+     fetch('https://reportorial-nexus-server.vercel.app/selected',{
       method:'POST',
       headers:{
         "content-type": 'application/json'
@@ -46,8 +51,9 @@ const ClassCard = ({ course }) => {
             navigate('/login', {state: {from: location}})
           }
         })
-  
+     
       }
+      setIsClassSelected(true);
      }
     
   
@@ -66,7 +72,7 @@ const ClassCard = ({ course }) => {
           <p>Available seats: {availableSeats}</p>
           <p>Price: ${price}</p>
           <div className="card-actions justify-start">
-            <button onClick={()=>handleSelectClass(course)} className="btn btn-outline bg-sky-400 text-white hover:bg-slate-200 hover:text-black ">Select Class</button>
+            <button  disabled={isClassSelected} onClick={()=>handleSelectClass(course)} className={`btn btn-outline bg-sky-400 text-white hover:bg-slate-200 hover:text-black ${isClassSelected ? 'cursor-not-allowed' : ''}`}>Select Class</button>
           </div>
         </div>
       </div>

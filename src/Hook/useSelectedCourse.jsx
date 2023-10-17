@@ -8,7 +8,7 @@ const useSelectCourse = ()=>{
     const { refetch, data: selectedCourse = [] } = useQuery({
         queryKey: ['selected', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/selected?email=${user?.email}`)
+            const res = await fetch(`https://reportorial-nexus-server.vercel.app/selected?email=${user?.email}`)
             return res.json();
         },
     })

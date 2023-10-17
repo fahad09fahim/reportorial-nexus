@@ -2,12 +2,10 @@ import useEnroll from "../../Hook/useEnroll";
 
 
 const EnrolledClass = () => {
-  const[enrolledCourse] = useEnroll()
- console.log(enrolledCourse)
+  const[enrolledCourse,refetch] = useEnroll()
+refetch()
 
-//  const coursesName = enrolledCourse.forEach(element => {
-//   const course = element.courses;
-//  });
+
     return (
         <div className=" border border-red-200 rounded-md p-2 shadow-xl"> 
           <h1 className="text-3xl text-center">Enrolled Class:</h1>

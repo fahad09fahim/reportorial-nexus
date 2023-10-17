@@ -15,7 +15,7 @@ const Checkout = ({ price, selectedCourse, refetch }) => {
   useEffect(() => {
     if (price > 0) {
       fetch(
-        "http://localhost:5000/create-payment-intent",
+        "https://reportorial-nexus-server.vercel.app/create-payment-intent",
 
         {
           method: "POST",
@@ -81,10 +81,11 @@ const Checkout = ({ price, selectedCourse, refetch }) => {
         date: new Date(),
         quantity: selectedCourse.length,
         courses: selectedCourse.map((course) => course.name),
-        coursesId: selectedCourse.map((course) => course._id),
+        selectedCoursesId: selectedCourse.map((course) => course._id),
+        coursesId: selectedCourse.map((course) => course.courseId),
       };
 
-      fetch("http://localhost:5000/payment", {
+      fetch("https://reportorial-nexus-server.vercel.app/payment", {
         method: "POST",
         headers: {
           "content-type": "application/json",

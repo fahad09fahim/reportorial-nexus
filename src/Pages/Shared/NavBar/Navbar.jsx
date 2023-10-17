@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import './NavBar.css'
 import { useContext } from "react";
 import { AuthContext } from './../../../providers/AuthProvider';
+import useSelectCourse from "../../../Hook/useSelectedCourse";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const {user,logOut}=useContext(AuthContext)
-
+ const [selectedCourse] = useSelectCourse()
   const handleLogout=()=>{
     return logOut()
     .then(res=>console.log(res))
@@ -21,13 +23,17 @@ const Navbar = () => {
    
         <Link className="btn btn-ghost hover:text-red-400 " > Instructors</Link>
   
-      
+      {
+        user && <Link to='/dashboard' className="btn btn-ghost hover:text-red-400 ">Cart<div className="badge"><FaShoppingCart/> +{selectedCourse.length || 0 }</div></Link>
+      }
     </div>
   );
   return (
     <div className="navbar hexaBg text-white h-8  px-8 shadow-lg  fixed  z-10 ">
       <div className="navbar-start lg:hidden">
+    {user && <Link to='/dashboard' > <div className="badge badge-warning"><FaShoppingCart/> +{selectedCourse.length || 0}</div></Link> } 
         <div className="dropdown">
+          
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -44,6 +50,7 @@ const Navbar = () => {
               />
             </svg>
           </label>
+          
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gray-700 rounded-b-lg w-52"
@@ -67,10 +74,12 @@ const Navbar = () => {
           user?<>
           <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn  btn-circle  avatar">
+            
             <div className="w-10 rounded-full">
               <img src={user.photoURL} />
             </div>
           </label>
+          
           <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-black text-white rounded-box w-52">
             <li>
               <a className="justify-between">

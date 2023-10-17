@@ -1,6 +1,13 @@
+import useEnroll from "../../Hook/useEnroll";
 
 
 const EnrolledClass = () => {
+  const[enrolledCourse] = useEnroll()
+ console.log(enrolledCourse)
+
+//  const coursesName = enrolledCourse.forEach(element => {
+//   const course = element.courses;
+//  });
     return (
         <div className=" border border-red-200 rounded-md p-2 shadow-xl"> 
           <h1 className="text-3xl text-center">Enrolled Class:</h1>
@@ -18,13 +25,24 @@ const EnrolledClass = () => {
     </thead>
     <tbody>
       {/* row 1 */}
-      <tr>
-        <th>1</th>
-        <td>Course name</td>
-        <td>adele</td>
-        <td>dynamic</td>
-        <td>compo</td>
+      
+      {
+      
+      enrolledCourse.map((course,index)=>
+      <tr key={course._id}>
+         <th >{index+1}</th>
+      <td>{course.name}</td>
+      <td>{course.instructorName}</td>
+      <td>will be announced</td>
+      <td><button>Go</button></td>
       </tr>
+      )
+      
+      
+      }
+
+        
+    
     </tbody>
   </table>
 </div>

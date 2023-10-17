@@ -2,7 +2,7 @@ import useSelectCourse from "../../Hook/useSelectedCourse";
 import { FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import Payment from './Payment/Payment';
+
 const SelectedClass = () => {
   const [selectedCourse, refetch] = useSelectCourse();
   const total = selectedCourse.reduce((sum, course) => course.price + sum, 0);
@@ -79,7 +79,9 @@ const SelectedClass = () => {
             <th></th>
             <th>Sum:</th>
             <th>${total}</th>
-            <th><Link to='/payment' className="btn btn-xs bg-white text-green-700 rounded-lg border-green-400">Pay</Link></th>
+            <th>
+             {total>0 && <Link to='/payment'className="btn btn-xs bg-white text-green-700 rounded-lg  border-green-400">Pay</Link>}
+            </th>
           </tfoot>
         </table>
       </div>

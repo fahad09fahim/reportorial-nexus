@@ -2,7 +2,8 @@
 
 const EnrolledClass = () => {
     return (
-        <div>
+        <div className=" border border-red-200 rounded-md p-2 shadow-xl"> 
+          <h1 className="text-3xl text-center">Enrolled Class:</h1>
            <div className="overflow-x-auto">
   <table className="table table-zebra">
     {/* head */}

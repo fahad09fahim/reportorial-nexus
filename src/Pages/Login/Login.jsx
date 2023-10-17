@@ -1,11 +1,18 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from './../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from "../../component/SocialLogin/SocialLogin";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const {logIn}= useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
+
   const {
     register,
     handleSubmit,
@@ -15,7 +22,18 @@ const Login = () => {
     logIn(data.email, data.password)
     .then(result=>{
         const user = result.user;
-        console.log(user)
+        // console.log(user)
+        if(user){
+          Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Login successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+           navigate(from, { replace: true })
+        }
+        
     })
     console.log(data)
   };

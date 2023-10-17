@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from './../../providers/AuthProvider';
 import { Link } from "react-router-dom";
 import SocialLogin from "../../component/SocialLogin/SocialLogin";
-
+//  todo: give animation/ setup route after registration successfully
 const Registration = () => {
     const {createUser,updateUserProfile} = useContext(AuthContext)
   const {

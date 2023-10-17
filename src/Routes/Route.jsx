@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
 import DashBoard from "../Layout/DashBoard";
+import Payment from "../component/DashBoardContent/Payment/Payment";
 
 
 const router = createBrowserRouter([
@@ -31,11 +32,15 @@ const router = createBrowserRouter([
         path:'register',
         element:<Registration/>
       },
+      {
+        path:'/payment',
+        element:<Payment/>
+      }
     ],
   },
   {
-    path:'/dashboard',
-    element:<DashBoard/>
+    path:'dashboard',
+    element:<PrivateRoute><DashBoard/></PrivateRoute>,
   }
 ]);
 

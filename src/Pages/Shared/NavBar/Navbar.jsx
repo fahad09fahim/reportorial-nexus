@@ -29,7 +29,7 @@ const Navbar = () => {
     </div>
   );
   return (
-    <div className="navbar hexaBg text-white h-8  px-8 shadow-lg  fixed  z-10 ">
+    <div className="navbar hexaBg text-white h-8  px-8 shadow-lg   ">
       <div className="navbar-start lg:hidden">
     {user && <Link to='/dashboard' > <div className="badge badge-warning"><FaShoppingCart/> +{selectedCourse.length || 0}</div></Link> } 
         <div className="dropdown">

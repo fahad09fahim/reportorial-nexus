@@ -1,12 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import useSelectCourse from "../../Hook/useSelectedCourse";
+import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ClassCard = ({ course }) => {
   const { _id,name, image, instructorName, availableSeats, price } = course;
   const {user}= useContext(AuthContext)
   const [, refetch] = useSelectCourse();
-
+ const navigate = useNavigate()
+ const location = useLocation()
   const handleSelectClass=(course)=>{
     // console.log(course)
     if(user && user.email){
@@ -22,11 +25,32 @@ const ClassCard = ({ course }) => {
      .then(data=>{
       if(data.insertedId){
         refetch()
-        alert('course selected successfully')
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Your selected course has been added',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }})}
+      else{
+        Swal.fire({
+          title: 'Please login to select course',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Login now!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate('/login', {state: {from: location}})
+          }
+        })
+  
       }
-     })
-    }
-  }
+     }
+    
+  
   return (
     <div>
       <div className="card w-80 bg-base-100 shadow-xl my-3">

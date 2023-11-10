@@ -19,7 +19,7 @@ const ClassCard = ({ course }) => {
     }
     if(user && user.email){
       const selectedItem = {courseId:_id,name,instructorName,availableSeats,price,email:user.email}
-     fetch('https://reportorial-nexus-server.vercel.app/selected',{
+     fetch('https://reportorial-nexus-server.up.railway.app/selected',{
       method:'POST',
       headers:{
         "content-type": 'application/json'

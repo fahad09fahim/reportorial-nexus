@@ -18,7 +18,7 @@ const SelectedClass = () => {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://reportorial-nexus-server.vercel.app/selected/${course._id}`, {
+          fetch(`https://reportorial-nexus-server.up.railway.app/selected/${course._id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

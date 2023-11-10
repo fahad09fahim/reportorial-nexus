@@ -4,7 +4,7 @@ const useCourses = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://reportorial-nexus-server.vercel.app/course")
+    fetch("https://reportorial-nexus-server.up.railway.app/course")
       .then((res) => res.json())
       .then((data) => {
         if (data) {

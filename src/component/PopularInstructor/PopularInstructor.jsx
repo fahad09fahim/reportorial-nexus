@@ -4,14 +4,14 @@ import useInstructor from "../../Hook/useInstructor";
 const PopularInstructor = () => {
   const [instructor] = useInstructor();
   return (
-    <div className="p-14">
+    <div >
       <h1 className="text-center text-3xl font-semibold"><span className="border-b-4 border-blue-500">Popular Instructor</span></h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 m-5 md:m-20  gap-9" >
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5 mx-auto p-5" >
         {
-            instructor.map(i=><div key={i._id} className="card  w-full md:w-80 bg-base-100 shadow-xl  ">
+            instructor.map(i=><div key={i._id} className="card  overflow-hidden   bg-base-100 shadow-xl  ">
             <figure>
               <img
-              className="h-56 w-auto rounded-xl"
+              className="w-full h-64 object-cover hover:scale-110 duration-1000"
                 src={i.image}
                 alt="Album"
               />

@@ -18,7 +18,7 @@ window.scrollTo({
         <h1 className="text-3xl uppercase font-semibold"><span className="border-b-4 border-blue-500">Popular Courses</span></h1>
         <div className="flex flex-col md:flex-row  justify-center items-center gap-4  m-4">
       {limitedCourses.map((course) => (
-        <div key={course._id}>
+        <div key={course._id} className="hover:scale-90 duration-1000">
           <div className="card w-80 bg-base-100 shadow-xl my-3">
             <figure>
               <img src={course.image} alt="Shoes" />
